@@ -31,6 +31,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"reflect"
 
 	"github.com/uniqush/uniqush-push/push"
 	"github.com/uniqush/uniqush-push/util"
@@ -129,6 +130,7 @@ type CMCommonData struct {
 	CollapseKey    string   `json:"collapse_key,omitempty"`
 	DelayWhileIdle bool     `json:"delay_while_idle,omitempty"`
 	TimeToLive     uint     `json:"time_to_live,omitempty"`
+	Priority       string   `json:"priority,omitempty"`
 }
 
 // Data used by GCM or FCM. Currently the same.
@@ -210,6 +212,35 @@ func (self *PushServiceBase) ToCMPayload(notif *push.Notification, regIds []stri
 		}
 	}
 
+    // default message priority
+    payload.Priority = "high"
+
+	if priority, ok := postData["priority"]; ok {
+	    inArray := func(needle interface{}, haystack interface{}) (bool, int) {
+            switch reflect.TypeOf(haystack).Kind() {
+            case reflect.Slice:
+                s := reflect.ValueOf(haystack)
+                for i := 0; i < s.Len(); i++ {
+                    if reflect.DeepEqual(needle, s.Index(i).Interface()) == true {
+                    return true, i
+                    }
+                }
+            }
+
+            return false, -1
+		}
+
+		exists, index := inArray(priority, []string{"high", "normal", "10", "5"})
+		if exists {
+		    switch index {
+			case 0, 2:
+			    payload.Priority = "high"
+			case 1, 3:
+			    payload.Priority = "normal"
+		    }
+		}
+	}
+
 	// Support uniqush.notification.gcm/fcm as another optional payload, to conform to GCM spec: https://developers.google.com/cloud-messaging/http-server-ref#send-downstream
 	// This will make GCM handle displaying the notification instead of the client.
 	// Note that "data" payloads (Uniqush's default for GCM/FCM, for historic reasons) can be sent alongside "notification" payloads.
@@ -236,7 +267,7 @@ func (self *PushServiceBase) ToCMPayload(notif *push.Notification, regIds []stri
 				continue
 			}
 			switch k {
-			case "msggroup", "ttl":
+			case "msggroup", "ttl", "priority":
 				continue
 			default:
 				payload.Data[k] = v
