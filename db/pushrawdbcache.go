@@ -20,7 +20,7 @@ package db
 import (
 	"time"
 
-	"github.com/sdsdevil/cache"
+	"github.com/uniqush/cache"
 	"github.com/sdsdevil/uniqush-push/push"
 )
 
