@@ -6,9 +6,9 @@ import (
 	"testing"
 
 	"github.com/uniqush/cache"
-	"github.com/uniqush/uniqush-push/push"
-	"github.com/uniqush/uniqush-push/srv/apns/binary_api/mocks"
-	"github.com/uniqush/uniqush-push/srv/apns/common"
+	"github.com/sdsdevil/uniqush-push/push"
+	"github.com/sdsdevil/uniqush-push/srv/apns/binary_api/mocks"
+	"github.com/sdsdevil/uniqush-push/srv/apns/common"
 )
 
 const APNS_SUCCESS uint8 = 0

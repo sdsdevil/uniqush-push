@@ -13,7 +13,7 @@ if [ -d "$TEMP" ]; then
 	rm -rf "$TEMP"
 fi
 
-GOBIN="$TEMP/bin" GOPATH="$TEMP" go get github.com/uniqush/uniqush-push
+GOBIN="$TEMP/bin" GOPATH="$TEMP" go get github.com/sdsdevil/uniqush-push
 
 VERSION=`"$TEMP/bin/uniqush-push" --version | sed 's/uniqush-push //'`
 
@@ -49,11 +49,11 @@ EOF
 chmod +x "$TARBALLDIR/install.sh"
 tar czvf "$TARBALLNAME.tar.gz" "$TARBALLNAME"
 
-rm -rf "$TEMP"
-rm -rf "$BUILD"
-rm -rf "$TARBALLDIR"
-rm -f uniqush-push
-rm -f uniqush-push.conf
-rm -f "$LICENSE"
+#rm -rf "$TEMP"
+#rm -rf "$BUILD"
+#rm -rf "$TARBALLDIR"
+#rm -f uniqush-push
+#rm -f uniqush-push.conf
+#rm -f "$LICENSE"
 
 echo "Packages are found in uniqush-push_${VERSION}...rpm/.deb/.tar.gz"

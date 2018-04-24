@@ -24,7 +24,7 @@ import (
 	"strings"
 
 	"github.com/uniqush/log"
-	"github.com/uniqush/uniqush-push/push"
+	"github.com/sdsdevil/uniqush-push/push"
 	redis5 "gopkg.in/redis.v5"
 )
 

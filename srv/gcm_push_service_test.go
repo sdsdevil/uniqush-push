@@ -9,7 +9,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/uniqush/uniqush-push/push"
+	"github.com/sdsdevil/uniqush-push/push"
 )
 
 const (
