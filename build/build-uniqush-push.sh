@@ -49,11 +49,11 @@ EOF
 chmod +x "$TARBALLDIR/install.sh"
 tar czvf "$TARBALLNAME.tar.gz" "$TARBALLNAME"
 
-#rm -rf "$TEMP"
-#rm -rf "$BUILD"
-#rm -rf "$TARBALLDIR"
-#rm -f uniqush-push
-#rm -f uniqush-push.conf
-#rm -f "$LICENSE"
+rm -rf "$TEMP"
+rm -rf "$BUILD"
+rm -rf "$TARBALLDIR"
+rm -f uniqush-push
+rm -f uniqush-push.conf
+rm -f "$LICENSE"
 
 echo "Packages are found in uniqush-push_${VERSION}...rpm/.deb/.tar.gz"
