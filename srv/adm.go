@@ -30,7 +30,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/sdsdevil/uniqush-push/push"
+	"github.com/uniqush/uniqush-push/push"
 )
 
 const (

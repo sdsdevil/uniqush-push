@@ -28,8 +28,8 @@ import (
 	"time"
 
 	"github.com/uniqush/cache"
-	"github.com/sdsdevil/uniqush-push/push"
-	"github.com/sdsdevil/uniqush-push/srv/apns/common"
+	"github.com/uniqush/uniqush-push/push"
+	"github.com/uniqush/uniqush-push/srv/apns/common"
 )
 
 const (

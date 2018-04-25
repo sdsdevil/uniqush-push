@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 import (
-	"github.com/sdsdevil/uniqush-push/push"
+	"github.com/uniqush/uniqush-push/push"
 )
 
 func testToFCMPayload(t *testing.T, postData map[string]string, regIds []string, expectedPayload string) {

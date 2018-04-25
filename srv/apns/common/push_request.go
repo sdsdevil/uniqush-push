@@ -18,7 +18,7 @@
 package common
 
 import (
-	"github.com/sdsdevil/uniqush-push/push"
+	"github.com/uniqush/uniqush-push/push"
 )
 
 // PushRequestProcessor abstracts the different network protocols Apple has for sending push notifications.

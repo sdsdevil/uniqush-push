@@ -39,10 +39,10 @@ import (
 
 	// There are two different protocols we use to connect to APNS: binary and HTTP2.
 	// TODO: Make this configurable.
-	"github.com/sdsdevil/uniqush-push/push"
-	"github.com/sdsdevil/uniqush-push/srv/apns/binary_api"
-	"github.com/sdsdevil/uniqush-push/srv/apns/common"
-	"github.com/sdsdevil/uniqush-push/srv/apns/http_api"
+	"github.com/uniqush/uniqush-push/push"
+	"github.com/uniqush/uniqush-push/srv/apns/binary_api"
+	"github.com/uniqush/uniqush-push/srv/apns/common"
+	"github.com/uniqush/uniqush-push/srv/apns/http_api"
 )
 
 const (

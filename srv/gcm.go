@@ -23,8 +23,8 @@ package srv
 import (
 	"errors"
 
-	"github.com/sdsdevil/uniqush-push/push"
-	cm "github.com/sdsdevil/uniqush-push/srv/cloud_messaging"
+	"github.com/uniqush/uniqush-push/push"
+	cm "github.com/uniqush/uniqush-push/srv/cloud_messaging"
 )
 
 const (

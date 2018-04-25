@@ -23,13 +23,13 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/sdsdevil/uniqush-push/srv"
+	"github.com/uniqush/uniqush-push/srv"
 )
 
 var uniqushPushConfFlags = flag.String("config", "/etc/uniqush/uniqush-push.conf", "Config file path")
 var uniqushPushShowVersionFlag = flag.Bool("version", false, "Version info")
 
-var uniqushPushVersion = "uniqush-push 2.6.0"
+var uniqushPushVersion = "uniqush-push 2.5.1-alfa"
 
 func installPushServices() {
 	srv.InstallGCM()

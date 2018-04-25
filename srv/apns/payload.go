@@ -24,8 +24,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/sdsdevil/uniqush-push/push"
-	"github.com/sdsdevil/uniqush-push/util"
+	"github.com/uniqush/uniqush-push/push"
+	"github.com/uniqush/uniqush-push/util"
 )
 
 // validateRawAPNSPayload tests that the client-provided JSON payload can be sent to APNS.

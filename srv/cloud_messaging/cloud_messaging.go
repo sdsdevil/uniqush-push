@@ -33,8 +33,8 @@ import (
 	"time"
 	"reflect"
 
-	"github.com/sdsdevil/uniqush-push/push"
-	"github.com/sdsdevil/uniqush-push/util"
+	"github.com/uniqush/uniqush-push/push"
+	"github.com/uniqush/uniqush-push/util"
 )
 
 // HTTPClient is a mockable interface for the parts of http.Client used by the GCM and FCM modules.
