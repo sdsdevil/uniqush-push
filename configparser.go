@@ -25,8 +25,8 @@ import (
 
 	"github.com/uniqush/goconf/conf"
 	"github.com/uniqush/log"
-	"github.com/uniqush/uniqush-push/db"
-	"github.com/uniqush/uniqush-push/push"
+	"github.com/sdsdevil/uniqush-push/db"
+	"github.com/sdsdevil/uniqush-push/push"
 )
 
 const (

@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 import (
-	"github.com/uniqush/uniqush-push/push"
+	"github.com/sdsdevil/uniqush-push/push"
 )
 
 func testADMNotifToMessage(t *testing.T, postData map[string]string, expectedPayload string) {
