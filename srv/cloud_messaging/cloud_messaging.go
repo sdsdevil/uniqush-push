@@ -216,28 +216,28 @@ func (self *PushServiceBase) ToCMPayload(notif *push.Notification, regIds []stri
     payload.Priority = "high"
 
 	if priority, ok := postData["priority"]; ok {
-	    inArray := func(needle interface{}, haystack interface{}) (bool, int) {
-            switch reflect.TypeOf(haystack).Kind() {
-            case reflect.Slice:
-                s := reflect.ValueOf(haystack)
-                for i := 0; i < s.Len(); i++ {
-                    if reflect.DeepEqual(needle, s.Index(i).Interface()) == true {
-                    return true, i
-                    }
-                }
-            }
+		inArray := func(needle interface{}, haystack interface{}) (bool, int) {
+			switch reflect.TypeOf(haystack).Kind() {
+			case reflect.Slice:
+				s := reflect.ValueOf(haystack)
+				for i := 0; i < s.Len(); i++ {
+					if reflect.DeepEqual(needle, s.Index(i).Interface()) == true {
+						return true, i
+					}
+				}
+			}
 
-            return false, -1
+			return false, -1
 		}
 
 		exists, index := inArray(priority, []string{"high", "normal", "10", "5"})
 		if exists {
-		    switch index {
+			switch index {
 			case 0, 2:
-			    payload.Priority = "high"
+				payload.Priority = "high"
 			case 1, 3:
-			    payload.Priority = "normal"
-		    }
+				payload.Priority = "normal"
+			}
 		}
 	}
 

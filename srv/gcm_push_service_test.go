@@ -212,7 +212,7 @@ func assertExpectedGCMRequest(t *testing.T, request *http.Request, expectedRegId
 	if err != nil {
 		t.Fatalf("Unexpected error reading body: %v", err)
 	}
-	expectedBody := fmt.Sprintf(`{"registration_ids":[%q],"data":%s,"time_to_live":3600}`, expectedRegId, expectedPayload)
+	expectedBody := fmt.Sprintf(`{"registration_ids":[%q],"data":%s,"time_to_live":3600,"priority":"high"}`, expectedRegId, expectedPayload)
 	expectJSONIsEquivalent(t, []byte(expectedBody), actualBodyBytes)
 }
 
@@ -227,7 +227,7 @@ func TestPreviewWithCommonParameters(t *testing.T) {
 		"uniqush.payload.apns": "{}",
 		"uniqush.foo":          "foo",
 	}
-	expectedPayload := `{"registration_ids":["placeholderRegId"],"collapse_key":"somegroup","time_to_live":5,"data":{"other":"value","other.foo":"bar"}}`
+	expectedPayload := `{"registration_ids":["placeholderRegId"],"collapse_key":"somegroup","time_to_live":5,"priority":"high","data":{"other":"value","other.foo":"bar"}}`
 
 	notif := push.NewEmptyNotification()
 	notif.Data = postData

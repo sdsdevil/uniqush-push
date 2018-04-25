@@ -29,7 +29,7 @@ func TestToFCMPayloadWithRawPayload(t *testing.T) {
 		"foo": "bar",
 	}
 	regIds := []string{"CAFE1-FF", "42-607"}
-	expectedPayload := `{"registration_ids":["CAFE1-FF","42-607"],"collapse_key":"somegroup","time_to_live":3600,"data":{"message":{"key":{},"x":"y"},"other":{}}}`
+	expectedPayload := `{"registration_ids":["CAFE1-FF","42-607"],"collapse_key":"somegroup","time_to_live":3600,"priority":"high","data":{"message":{"key":{},"x":"y"},"other":{}}}`
 	testToFCMPayload(t, postData, regIds, expectedPayload)
 }
 
@@ -39,7 +39,7 @@ func TestToFCMPayloadWithRawEmptyPayload(t *testing.T) {
 		"uniqush.payload.fcm": `{}`,
 	}
 	regIds := []string{"CAFE1-FF", "42-607"}
-	expectedPayload := `{"registration_ids":["CAFE1-FF","42-607"],"collapse_key":"somegroup","time_to_live":3600,"data":{}}`
+	expectedPayload := `{"registration_ids":["CAFE1-FF","42-607"],"collapse_key":"somegroup","time_to_live":3600,"priority":"high","data":{}}`
 	testToFCMPayload(t, postData, regIds, expectedPayload)
 }
 
@@ -50,7 +50,7 @@ func TestToFCMPayloadWithRawUnescapedPayload(t *testing.T) {
 		"foo": "bar",
 	}
 	regIds := []string{"CAFE1-FF", "42-607"}
-	expectedPayload := `{"registration_ids":["CAFE1-FF","42-607"],"collapse_key":"somegroup","time_to_live":3600,"data":{"message":{"key":{},"x":"<a☃?>\"'"},"other":{}}}`
+	expectedPayload := `{"registration_ids":["CAFE1-FF","42-607"],"collapse_key":"somegroup","time_to_live":3600,"priority":"high","data":{"message":{"key":{},"x":"<a☃?>\"'"},"other":{}}}`
 	testToFCMPayload(t, postData, regIds, expectedPayload)
 }
 
@@ -65,7 +65,7 @@ func TestToFCMPayloadWithCommonParameters(t *testing.T) {
 		"uniqush.foo":          "foo",
 	}
 	regIds := []string{"CAFE1-FF", "42-607"}
-	expectedPayload := `{"registration_ids":["CAFE1-FF","42-607"],"collapse_key":"somegroup","time_to_live":5,"data":{"other":"value","other.foo":"bar"}}`
+	expectedPayload := `{"registration_ids":["CAFE1-FF","42-607"],"collapse_key":"somegroup","time_to_live":5,"priority":"high","data":{"other":"value","other.foo":"bar"}}`
 	testToFCMPayload(t, postData, regIds, expectedPayload)
 }
 
@@ -76,7 +76,7 @@ func TestToFCMPayloadWithBlob(t *testing.T) {
 		"uniqush.payload.fcm": `{"message":{"aPushType":{"foo":"bar","other":"value"},"fcm":{},"others":{"type":"aPushType"}}}`,
 	}
 	regIds := []string{"CAFE1-FF", "42-607"}
-	expectedPayload := `{"registration_ids":["CAFE1-FF","42-607"],"collapse_key":"somegroupnotif","time_to_live":3600,"data":{"message":{"aPushType":{"foo":"bar","other":"value"},"fcm":{},"others":{"type":"aPushType"}}}}`
+	expectedPayload := `{"registration_ids":["CAFE1-FF","42-607"],"collapse_key":"somegroupnotif","time_to_live":3600,"priority":"high","data":{"message":{"aPushType":{"foo":"bar","other":"value"},"fcm":{},"others":{"type":"aPushType"}}}}`
 	testToFCMPayload(t, postData, regIds, expectedPayload)
 }
 
@@ -87,7 +87,7 @@ func TestToFCMPayloadNewWay(t *testing.T) {
 		"uniqush.payload.fcm": `{"message":{"aPushType":{"foo":"bar","other":"value"},"fcm":{},"others":{"type":"aPushType"}}}`,
 	}
 	regIds := []string{"CAFE1-FF", "42-607"}
-	expectedPayload := `{"registration_ids":["CAFE1-FF","42-607"],"collapse_key":"somegroup","time_to_live":3600,"data":{"message":{"aPushType":{"foo":"bar","other":"value"},"fcm":{},"others":{"type":"aPushType"}}}}`
+	expectedPayload := `{"registration_ids":["CAFE1-FF","42-607"],"collapse_key":"somegroup","time_to_live":3600,"priority":"high","data":{"message":{"aPushType":{"foo":"bar","other":"value"},"fcm":{},"others":{"type":"aPushType"}}}}`
 	testToFCMPayload(t, postData, regIds, expectedPayload)
 }
 
@@ -98,7 +98,7 @@ func TestToFCMPayloadUsesMsggroupForCollapseKey(t *testing.T) {
 		"uniqush.notification.fcm": `{"body":"text","icon":"myicon","title":"🔥Notification Title"}`,
 	}
 	regIds := []string{"CAFE1-FF", "11-213"}
-	expectedPayload := `{"registration_ids":["CAFE1-FF","11-213"],"collapse_key":"somegroup","time_to_live":3600,"notification":{"body":"text","icon":"myicon","title":"🔥Notification Title"}}`
+	expectedPayload := `{"registration_ids":["CAFE1-FF","11-213"],"collapse_key":"somegroup","time_to_live":3600,"priority":"high","notification":{"body":"text","icon":"myicon","title":"🔥Notification Title"}}`
 	testToFCMPayload(t, postData, regIds, expectedPayload)
 }
 
@@ -110,7 +110,7 @@ func TestToFCMNotificationWithPayloadAndNotificationBlobs(t *testing.T) {
 		"uniqush.payload.fcm":      `{"message":{"key": {},"x":"y"},"other":{}}`,
 	}
 	regIds := []string{"CAFE1-FF", "11-213"}
-	expectedPayload := `{"registration_ids":["CAFE1-FF","11-213"],"collapse_key":"bothgroup","time_to_live":3600,"data":{"message":{"key":{},"x":"y"},"other":{}},"notification":{"body":"text","icon":"myicon","title":"mytitle"}}`
+	expectedPayload := `{"registration_ids":["CAFE1-FF","11-213"],"collapse_key":"bothgroup","time_to_live":3600,"priority":"high","data":{"message":{"key":{},"x":"y"},"other":{}},"notification":{"body":"text","icon":"myicon","title":"mytitle"}}`
 	testToFCMPayload(t, postData, regIds, expectedPayload)
 }
 

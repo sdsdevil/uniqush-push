@@ -212,7 +212,7 @@ func assertExpectedFCMRequest(t *testing.T, request *http.Request, expectedRegId
 	if err != nil {
 		t.Fatalf("Unexpected error reading body: %v", err)
 	}
-	expectedBody := fmt.Sprintf(`{"registration_ids":[%q],"data":%s,"time_to_live":3600}`, expectedRegId, expectedPayload)
+	expectedBody := fmt.Sprintf(`{"registration_ids":[%q],"data":%s,"time_to_live":3600,"priority":"high"}`, expectedRegId, expectedPayload)
 	fcmExpectJSONIsEquivalent(t, []byte(expectedBody), actualBodyBytes)
 }
 
