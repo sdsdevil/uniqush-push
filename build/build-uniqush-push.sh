@@ -14,6 +14,10 @@ if [ -d "$TEMP" ]; then
 fi
 
 GOBIN="$TEMP/bin" GOPATH="$TEMP" go get github.com/sdsdevil/uniqush-push
+cp -rf "$TEMP/src/github.com/sdsdevil/uniqush-push" "$TEMP/src/github.com/uniqush/uniqush-push"
+go install github.com/uniqush/uniqush-push
+go build github.com/uniqush/uniqush-push
+mv -f uniqush-push "$TEMP/bin"
 
 VERSION=`"$TEMP/bin/uniqush-push" --version | sed 's/uniqush-push //'`
 
