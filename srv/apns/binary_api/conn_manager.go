@@ -27,8 +27,8 @@ import (
 	"io"
 	"net"
 
-	"github.com/sdsdevil/uniqush-push/push"
-	"github.com/sdsdevil/uniqush-push/srv/apns/common"
+	"github.com/uniqush/uniqush-push/push"
+	"github.com/uniqush/uniqush-push/srv/apns/common"
 )
 
 // ConnManager abstracts creating TLS sockets to send push payloads to APNS.

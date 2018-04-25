@@ -21,7 +21,7 @@ import (
 	"time"
 
 	"github.com/uniqush/cache"
-	"github.com/sdsdevil/uniqush-push/push"
+	"github.com/uniqush/uniqush-push/push"
 )
 
 type pushRawDatabaseCache struct {

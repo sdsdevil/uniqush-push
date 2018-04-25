@@ -6,8 +6,8 @@ import (
 	"testing"
 
 	"github.com/uniqush/log"
-	"github.com/sdsdevil/uniqush-push/db"
-	"github.com/sdsdevil/uniqush-push/push"
+	"github.com/uniqush/uniqush-push/db"
+	"github.com/uniqush/uniqush-push/push"
 )
 
 func expectEquals(t *testing.T, expected interface{}, actual interface{}, msg string) {

@@ -13,7 +13,7 @@ if [ -d "$TEMP" ]; then
 	rm -rf "$TEMP"
 fi
 
-GOBIN="$TEMP/bin" GOPATH="$TEMP" go get github.com/sdsdevil/uniqush-push
+GOBIN="$TEMP/bin" GOPATH="$TEMP" go get github.com/uniqush/uniqush-push
 
 VERSION=`"$TEMP/bin/uniqush-push" --version | sed 's/uniqush-push //'`
 
